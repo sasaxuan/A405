@@ -49,7 +49,7 @@ for key in allkeys[1:]:
 ax1.set_title('Miami FL, July 2010 -- 62 soundings')
 ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_height.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_height.png',dpi=200)
 
 figcount+=1
 fig=plt.figure(figcount)
@@ -62,7 +62,7 @@ for key in allkeys[1:]:
 ax1.set_title('Miami FL, July 2010 --h2o mixing ratio')
 ax1.set_xlabel('h2o mixing ratio  g/kg')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_mix_height.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_mix_height.png',dpi=200)
 
 
 
@@ -80,7 +80,7 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('pressure (hPa)')
 ax1.set_ylim([1000,2])
 ax1.figure.canvas.draw()
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_press.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_press.png',dpi=200)
 
 
 
@@ -98,7 +98,7 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('pressure (hPa)')
 ax1.set_ylim([1000.,2.])
 ax1.figure.canvas.draw()
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_press_logy.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_press_logy.png',dpi=200)
 
 
 
@@ -119,7 +119,7 @@ ax1.set_xlim([-20,40])
 ax1.set_title('Miami July 2010 - 3am soundings')
 ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_height_3am.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_height_3am.png',dpi=200)
 
 figcount+=1
 fig.clf()
@@ -136,7 +136,7 @@ ax1.set_xlim([-20,40])
 ax1.set_title('Miami July 2010 - 3pm soundings')
 ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_height_3pm.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_height_3pm.png',dpi=200)
 
 
 p0=[]
@@ -214,7 +214,7 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
 ax1.set_title('Miami FL, July 2010 -- July average')
 ax1.legend([dayline[0],nightline[0],adialine[0]],('day','night','adiabat'))
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_avgtemps.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_avgtemps.png',dpi=200)
 
 
 figcount+=1
@@ -238,7 +238,7 @@ ax1.set_xlabel('mixing ratio (g/kg)')
 ax1.set_ylabel('height (km)')
 ax1.set_title('h2o mixing ratio Miami, FL, July 2010 -- July average')
 ax1.legend([dayline[0],nightline[0]],('day','night'))
-ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/mia_avgmix.png',dpi=200)
+ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_avgmix.png',dpi=200)
 
 plt.show()
 
