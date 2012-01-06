@@ -5,13 +5,7 @@ import glob
 import matplotlib.pyplot as plt
 import pickle
 
-
-def findz(press,temp,z0):
-    Rd=287.
-    rho=press*100./((temp+273.15)*Rd)
-    delz=-np.diff(press*100.)/(rho[:-1]*9.8)
-    the_z=z0 + delz
-    return np.concatenate(([z0],the_z))
+ 
 
 picfile='s_alburqurque.pic'
 picfile=open(picfile,'r')
@@ -27,10 +21,12 @@ for count,the_key in enumerate(theKeys):
 figcount=0    
 allkeys=newDict.keys()
 firstsound=newDict[allkeys[0]]
-figfac=simplots()
+
+
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 ax1.plot(firstsound.temp,firstsound.height*1.e-3)
 for key in allkeys[1:]:
     thesound=newDict[key]
@@ -41,10 +37,10 @@ ax1.set_ylabel('height (km)')
 ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/alb_height.png',dpi=200)
 
 
-figfac=simplots()
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 ax1.plot(firstsound.mixr,firstsound.height*1.e-3)
 for key in allkeys[1:]:
     thesound=newDict[key]
@@ -54,10 +50,10 @@ ax1.set_xlabel('h2o mixing ratio  g/kg')
 ax1.set_ylabel('height (km)')
 ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/alb_mix_height.png',dpi=200)
 
-figfac=simplots()
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 ax1.plot(firstsound.temp,firstsound.press)
 ax1.invert_yaxis()
 for key in allkeys[1:]:
@@ -68,11 +64,10 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('pressure (hPa)')
 ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/alb_press.png',dpi=200)
 
-
-figfac=simplots()
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 ax1.semilogy(firstsound.temp,firstsound.press)
 ax1.invert_yaxis()
 for key in allkeys[1:]:
@@ -86,10 +81,20 @@ ax1.figure.canvas.draw()
 ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/alb_press_logy.png',dpi=200)
 
 
-figfac=simplots()
+import matplotlib.pyplot as plt
+fig=plt.figure(1)
+fig.clf()
+ax1=fig.add_subplot(111)
+ax1.plot()
+fig.tight_layout()
+fig.canvas.draw()
+plt.show()
+ 
+
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 for key in allkeys:
     if '12Z' in key:
         thesound=newDict[key]
@@ -105,10 +110,10 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
 ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/alb_height_5am.png',dpi=200)
 
-figfac=simplots()
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 for key in allkeys:
     if '0Z' in key:
         thesound=newDict[key]
@@ -175,10 +180,10 @@ for key in allkeys:
         day_heightsounds.append(newheights)
         day_mixsounds.append(newmix)
 
-figfac=simplots()
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 mean_heights=np.array(day_heightsounds)
 mean_heights=mean_heights.mean(axis=0)
 mean_temps=np.array(day_tempsounds)
@@ -198,14 +203,14 @@ ax1.grid(True)
 ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
 ax1.set_title('Albuquerque NM, July 2010 -- July average')
-ax1.legend([dayline,nightline,adialine],('day','night','adiabat'))
+ax1.legend([dayline[0],nightline[0],adialine[0]],('day','night','adiabat'))
 ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/alb_avgtemps.png',dpi=200)
 
 
-figfac=simplots()
 figcount+=1
-figfac.fignum=figcount
-ax1=figfac.singleplot()
+fig=plt.figure(figcount)
+fig.clf()
+ax1=fig.add_subplot(111)
 mean_heights=np.array(day_heightsounds)
 mean_heights=mean_heights.mean(axis=0)
 mean_mixr=np.array(day_mixsounds)
@@ -222,7 +227,7 @@ ax1.grid(True)
 ax1.set_xlabel('mixing ratio (g/kg)')
 ax1.set_ylabel('height (km)')
 ax1.set_title('h2o mixing ratio Albuquerque NM, July 2010 -- July average')
-ax1.legend([dayline,nightline],('day','night'))
+ax1.legend([dayline[0],nightline[0]],('day','night'))
 ax1.figure.savefig('/home/phil/public_html/courses/eosc340/textfiles/figures1/alb_avgmix.png',dpi=200)
 
 plt.show()
