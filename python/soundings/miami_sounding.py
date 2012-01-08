@@ -5,13 +5,7 @@ import glob
 import matplotlib.pyplot as plt
 import pickle
 
-
-def findz(press,temp,z0):
-    Rd=287.
-    rho=press*100./((temp+273.15)*Rd)
-    delz=-np.diff(press*100.)/(rho[:-1]*9.8)
-    the_z=z0 + delz
-    return np.concatenate(([z0],the_z))
+figure_dir='/home/phil/public_html/courses/atsc405/textfiles/figures1' 
 
 picfile='s_miami.pic'
 picfile=open(picfile,'r')
@@ -23,17 +17,6 @@ theKeys.sort()
 outArray=np.empty([len(theKeys),],dtype='object')
 for count,the_key in enumerate(theKeys):
     outArray[count]=newDict[the_key]
-
-import matplotlib.pyplot as plt
-fig=plt.figure(1)
-fig.clf()
-ax1=fig.add_subplot(111)
-ax1.plot()
-fig.tight_layout()
-fig.canvas.draw()
-plt.show()
-
-
 
 figcount=0    
 allkeys=newDict.keys()
@@ -49,7 +32,7 @@ for key in allkeys[1:]:
 ax1.set_title('Miami FL, July 2010 -- 62 soundings')
 ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_height.png',dpi=200)
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_height.png'),dpi=200)
 
 figcount+=1
 fig=plt.figure(figcount)
@@ -62,7 +45,7 @@ for key in allkeys[1:]:
 ax1.set_title('Miami FL, July 2010 --h2o mixing ratio')
 ax1.set_xlabel('h2o mixing ratio  g/kg')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_mix_height.png',dpi=200)
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_mix_height.png'),dpi=200)
 
 
 
@@ -80,9 +63,7 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('pressure (hPa)')
 ax1.set_ylim([1000,2])
 ax1.figure.canvas.draw()
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_press.png',dpi=200)
-
-
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_press.png'),dpi=200)
 
 figcount+=1
 fig=plt.figure(figcount)
@@ -98,7 +79,7 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('pressure (hPa)')
 ax1.set_ylim([1000.,2.])
 ax1.figure.canvas.draw()
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_press_logy.png',dpi=200)
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_press_logy.png'),dpi=200)
 
 
 
@@ -119,9 +100,10 @@ ax1.set_xlim([-20,40])
 ax1.set_title('Miami July 2010 - 3am soundings')
 ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_height_3am.png',dpi=200)
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_height_3am.png'),dpi=200)
 
 figcount+=1
+fig=plt.figure(figcount)
 fig.clf()
 ax1=fig.add_subplot(111)
 for key in allkeys:
@@ -136,7 +118,7 @@ ax1.set_xlim([-20,40])
 ax1.set_title('Miami July 2010 - 3pm soundings')
 ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_height_3pm.png',dpi=200)
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_height_3pm.png'),dpi=200)
 
 
 p0=[]
@@ -214,7 +196,7 @@ ax1.set_xlabel('temperature (deg C)')
 ax1.set_ylabel('height (km)')
 ax1.set_title('Miami FL, July 2010 -- July average')
 ax1.legend([dayline[0],nightline[0],adialine[0]],('day','night','adiabat'))
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_avgtemps.png',dpi=200)
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_avgtemps.png'),dpi=200)
 
 
 figcount+=1
@@ -238,7 +220,7 @@ ax1.set_xlabel('mixing ratio (g/kg)')
 ax1.set_ylabel('height (km)')
 ax1.set_title('h2o mixing ratio Miami, FL, July 2010 -- July average')
 ax1.legend([dayline[0],nightline[0]],('day','night'))
-ax1.figure.savefig('/home/phil/public_html/courses/atsc405/textfiles/figures1/mia_avgmix.png',dpi=200)
+ax1.figure.savefig('%s/%s' % (figure_dir,'mia_avgmix.png'),dpi=200)
 
 plt.show()
 
