@@ -1,3 +1,5 @@
+from netCDF import Dataset
+outfile=Dataset('soundings.nc','w','NETCDF3_CLASSIC')
 try:
     from sounding_dir.readsoundings import readsound
 except ImportError:
