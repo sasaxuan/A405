@@ -37,4 +37,5 @@ z_interp=100:100:25000;
 T_interp=interp1(z_vectors{1},T_vectors{1},z_interp);
 plot(T_interp,z_interp,'g-','Linewidth',3)
 hold off
+print -dpng -r150 the_sounds.png
 

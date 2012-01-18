@@ -3,6 +3,7 @@ import string
 import glob
 import matplotlib.pyplot as plt
 import pickle
+import scipy.io as io
 
 figure_dir='/home/phil/public_html/courses/atsc405/textfiles/figures1' 
 
@@ -212,6 +213,16 @@ ax1.legend([dayline[0],nightline[0]],('day','night'))
 ax1.figure.savefig('%s/%s' % (figure_dir,'alb_avgmix.png'),dpi=200)
 
 plt.show()
+
+mat_out=newDict['Jul_26_00Z_2010']
+mat_out=np.frombuffer(mat_out.data)
+mat_out.shape=(125,6)
+out_descrip="""
+               Alburqurque: Jul_26_00Z_2010
+               names: press,height,temp,dewpt,relh,mixr
+               units: press_hPa,height_m,temp_C,dewpt_C,relh_pc,mixr_gkg
+             """
+io.savemat('firstsound.mat',{'datavals':mat_out,'data_descrip':out_descrip})
 
 
     

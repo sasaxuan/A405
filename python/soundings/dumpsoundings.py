@@ -1,11 +1,11 @@
-from netCDF import Dataset
-outfile=Dataset('soundings.nc','w','NETCDF3_CLASSIC')
 try:
     from sounding_dir.readsoundings import readsound
 except ImportError:
     import sys
     sys.path.append('/home/phil/repos')
     from sounding_dir.readsoundings import readsound
+import datetime
+import dateutil
     
 import numpy as np
 import string
@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 listfiles=glob.glob('s_*txt')
+sounding_times=[]
 for a_file in listfiles:
     print "*"*60
     print "working on: ",a_file
@@ -27,11 +28,11 @@ for a_file in listfiles:
     for key in thekeys:
         print "working on: ",key
         oldTup=key.split()
-        newTup=(oldTup[2],oldTup[1],oldTup[0],oldTup[3])
-        #rearrange:  ('Jul', '31', '12Z', '2010')
+        newTup=(oldTup[2],oldTup[1],oldTup[3],oldTup[0])
+        #rearrange:  ('Jul', '31',  '2010','12Z')
         print "rearrange: ",newTup
         #remove spaces to make valid matlab varname
-        newkey='%s_%s_%s_%s' % newTup
+        newkey='%s-%s-%s-%s' % newTup
         #switch to dashes for plot titles that don't subscript
         plotTitle='%s-%s-%s-%s' % newTup
         theDay=int(newTup[1])
@@ -54,7 +55,7 @@ for a_file in listfiles:
     # old has spaces, new has underlines
     #
     colnames=('press','height','temp','dewpt','relh','mixr')
-    titles=('press_hPa','height_m','temp_C','dewpt_C','relh_pc','mixr_gkg')
+    titles=('hPa','height_m','temp_C','dewpt_C','relh_percent','mixr_gperkg')
     for old,new in keyList:
         #grab the first six columns
         ## [,0] PRES(hPa); [,1] HGHT(m); [,2] TEMP[C];
