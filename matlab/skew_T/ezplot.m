@@ -1,7 +1,9 @@
  c=constants;
  %
- % PLO -- range of pressures in hPa
+ % yplot -- range of pressures in hPa
  % xplot -- range of temperatures in skew coords
+ % the xplot,yplot grid defines the space over which
+ % isotherms can be drawn
  yplot=[1000:-10:200];
  xplot=[-300:1:-140];
  [rows,pvals]=size(yplot);
@@ -9,7 +11,7 @@
  temp=zeros([pvals,tvals]);
  theTheta=zeros([pvals,tvals]);
  skew=30; %skewness factor (deg C)
- %lay down a reference grid that labels xplot,yplot points 
+ %lay down a xplot,yplot reference grid that labels xplot,yplot points 
  %in the new (skewT-lnP) coordinate system .
  % Each value of the temp matrix holds the actual (data) temperature
  % label (in deg C)  of the xplot, yplot coordinate pairs
