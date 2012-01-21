@@ -15,16 +15,21 @@ function plot_five()
     temp=zeros([pvals,tvals]);
     skew=30
  %step 2
- %lay down a reference grid that labels xplot,yplot points 
+ %lay down a xplot,yplot reference grid that labels xplot,yplot points 
  %in the new (skewT-lnP) coordinate system .
  % Each value of the temp matrix holds the actual (data) temperature
  % label (in deg C)  of the xplot, yplot coordinate pairs
- % The transformation is given by W&H 3.56, p. 78.  Note
- % that there is a sign difference, because rather than
- % taking y= -log(P) like W&H, I take y= +log(P) and
- % then reverse the y axis
- %
- %
+ % The transformation is given by W&H 3.56, p. 78.  
+ % Here's an example of how the 5 degree isotherm is plotted:
+ % At 800 hPa, the transformed X coordinate is:
+ % convertTempToSkew(5,800.,30)=-195.5384 and at 400 hPa it's
+ % convertTempToSkew(5,400.,30)=-174.7439.  So the contour will
+ % be a straight line passing through (-195,800) and (-174,400)
+ % That line will slope from lower left to upper right when the 
+ % pressure axis direction is reversed so that pressure decreases
+ % upward.  The temp(i,j) matrix for
+ % points near that line will be 5, and a contour will be labeled
+ % with the 5 label
  %
  for i=1:pvals,
     for j=1:tvals,
