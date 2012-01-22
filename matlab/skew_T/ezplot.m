@@ -84,7 +84,7 @@
  semilogy(temp,press)
  set(gca,'yscale','log','ydir','reverse');
  ylabel('press (hPa)')
- xlabel('Temp (K)')
+ xlabel('Temp (deg C)')
  title('sounding 1')
  
       
