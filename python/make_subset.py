@@ -1,6 +1,5 @@
 from netCDF3 import Dataset
 import numpy as np
-import glob,datetime
 
 in_file='/home/phil/public_html/courses/atsc500/code/matlab/BOMEX_256x256x150_25m_20m_2s_16_0000009240.nc'
 out_file='subset.nc'
