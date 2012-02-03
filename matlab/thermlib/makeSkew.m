@@ -21,7 +21,7 @@ function [figureHandle,skew]=makeSkew(figHandle)
     title('skew T - lnp chart');
     ylabel('pressure (hPa)');
     xlabel('temperature (black, degrees C)');
-    wsLabels=[4:2:20,24,28]
+    wsLabels=[0.1,0.25,0.5,1,2,3,4:2:20,24,28]
     [output,handle]=contour(xplot,yplot,ws*1.e3,wsLabels,'g');
     clabel(output,handle);
     thetaeLabels= [300,310,320,330,340,350,360,380,400]
