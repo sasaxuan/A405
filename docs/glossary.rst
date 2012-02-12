@@ -7,6 +7,12 @@ ________
 
 .. glossary::
 
+   entropy
+     *symbol*: :math:`s` --
+     *units*: :math:`J kg^{-1} K^{-1}`  -- 
+     *Notes*: `entropy and equivalent temperature notes`_ --  
+     *Text*: p. 100-101
+
    equivalent potential temperature
      *symbol*: :math:`\theta_e` --
      *units*: K --
