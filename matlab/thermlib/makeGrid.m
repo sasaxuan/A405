@@ -1,4 +1,4 @@
-function [xplot,yplot,temp,thetaVals,thetaeVals,ws,skew]=makeGrid()
+function [xplot,yplot,temp,thetaVals,thetaeVals,ws]=makeGrid(skew)
 %make the grid for a tephigram
 %get a dense range of p, t0 to contour
     c=constants;
@@ -11,7 +11,6 @@ function [xplot,yplot,temp,thetaVals,thetaeVals,ws,skew]=makeGrid()
     thetaVals=zeros([pvals,tvals]);
     thetaeVals=zeros([pvals,tvals]);
     ws=zeros([pvals,tvals]);
-    skew=30; %skewness factor (deg C)
     %lay down a reference grid that labels xplot,yplot points 
     %in the new (skewT-lnP) coordinate system .
     % Each value of the temp matrix holds the actual (data) temperature

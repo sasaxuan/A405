@@ -1,11 +1,11 @@
 %make a blank skewT diagram
-function [figureHandle,skew]=makeSkew(figHandle)
+function [figureHandle,outputws,handlews]=makeSkew(figHandle,skew)
     c=constants;
     %draw a skewT diagram and return the figure handle
     %and skew so other lines can be added later
     figureHandle=figure(figHandle);
     clf;
-    [xplot,yplot,temp,thetaVals,thetaeVals,ws,skew]=makeGrid();
+    [xplot,yplot,temp,thetaVals,thetaeVals,ws]=makeGrid(skew);
     tempLabels= -40:5:40;
     [output,hand]=contour(xplot,yplot,temp,tempLabels,'k');
     clabel(output,hand);
@@ -22,8 +22,8 @@ function [figureHandle,skew]=makeSkew(figHandle)
     ylabel('pressure (hPa)');
     xlabel('temperature (black, degrees C)');
     wsLabels=[0.1,0.25,0.5,1,2,3,4:2:20,24,28]
-    [output,handle]=contour(xplot,yplot,ws*1.e3,wsLabels,'g');
-    clabel(output,handle);
+    [outputws,handlews]=contour(xplot,yplot,ws*1.e3,wsLabels,'g');
+    clabel(outputws,handlews);
     thetaeLabels= [300,310,320,330,340,350,360,380,400]
     [output,handle]=contour(xplot,yplot,thetaeVals,thetaeLabels,'r');
     clabel(output,handle); 
