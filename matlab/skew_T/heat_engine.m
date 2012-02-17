@@ -33,6 +33,8 @@ tempC=Tvec_eq(1);
 pressC=ptop;
 tempD=Tvec_sf(1);
 pressD=ptop;
+wvD=wsat(tempD,ptop);
+wvC=wsat(tempC,ptop);
 
 hot_adiabat=plot(xcoord_eq,pvec*0.01,'r-','linewidth',3);
 cold_adiabat=plot(xcoord_sf,pvec*0.01,'b-','linewidth',3);
