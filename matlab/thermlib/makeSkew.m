@@ -1,5 +1,6 @@
-%make a blank skewT diagram
 function [figureHandle,outputws,handlews]=makeSkew(figHandle,skew)
+    %make a blank skewT diagram
+    %signature: [figureHandle,outputws,handlews]=makeSkew(figHandle,skew)
     c=constants;
     %draw a skewT diagram and return the figure handle
     %and skew so other lines can be added later

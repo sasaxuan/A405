@@ -1,4 +1,5 @@
 function [xplot,yplot,temp,thetaVals,thetaeVals,ws]=makeGrid(skew)
+% signature: makeGrid(skew)
 %make the grid for a tephigram
 %get a dense range of p, t0 to contour
     c=constants;
