@@ -20,7 +20,7 @@ def invert_Se(Se, z, r):
     # return Temperature T [K]
     T0 = (Se - Lv0*r - g*z)/Cpd
     def Tfind_Se(T, Se, z, r): return Se - Se_r(T, z, r)
-    T = rootfinder.fzero(Tfind_Se, T0, Se, z, r)
+    T = rootfiner.fzero(Tfind_Se, T0, Se, z, r)
     return T
 
 def Tfind_thetal(p, T, thetal, rt):
