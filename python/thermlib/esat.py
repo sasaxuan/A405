@@ -1,6 +1,8 @@
-"""This is the docstring for the esat .py module"""
+"""This is the docstring for the esat.py module."""
 
 import numpy as np
+import matplotlib.cbook as cbook
+
 
 def esat(T):
     """
@@ -31,17 +33,16 @@ def esat(T):
     Emanuel 4.4.14 p. 117
       
     """
-
-    try: len(T) # determine if T has been input as a vector
-    except: # if T is just a single value
-        Tc = T-273.15
-        esatOut = 611.2 * np.exp(17.67 * Tc / (Tc + 243.5)); 
-    else: # if T is a vector
-        Tc = [(i - 273.15) for i in T]
-        esatOut = [(611.2 * np.exp(17.67 * i / (i + 243.5))) \
-                   for i in Tc]
-        if len(esatOut) == 1:
-            esatOut = esatOut[0]
+    # determine if T has been input as a vector
+    is_scalar=True
+    if cbook.iterable(T):
+        is_scalar = False
+    T=np.atleast_1d(T)
+    Tc = T - 273.15
+    esatOut = 611.2 * np.exp(17.67 * Tc / (Tc + 243.5))
+    # if T is a vector
+    if is_scalar:
+        esatOut = esatOut[0]
     return esatOut
 
     
