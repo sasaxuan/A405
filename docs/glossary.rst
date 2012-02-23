@@ -19,3 +19,17 @@ ________
      *Notes*: `moist static energy notes`_
      *Text*: p. 86
 
+   virtual temperature 
+     *symbol*: :math: `T_v' --
+     *units*: :math: `K` --
+     *Notes*: 
+     *Text*: p. 66
+     *Definition*: `The temperature of dry air at the pressure and density of a sample of moist air.`
+
+   virtual potential temperature
+     *symbol*: :math: `\theta_v` --
+     *units*: `K` --
+     *Notes*: 
+     *Text*: 
+     *Definition*: `The potential temperature of dry air at the density of a sample of moist air.`
+
