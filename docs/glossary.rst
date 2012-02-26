@@ -67,3 +67,9 @@ ________
      *Text*: 
      *Definition*: `The potential temperature of dry air at the density of a sample of moist air.`
 
+   enthalpy
+     *symbol*: :math:`g` --
+     *units*: :math:`J`  --
+     *Notes*: `the first law and heat capacity notes`_ --
+     *Text*: p. 95-96
+     *Definition*: `A measure of the total energy of a thermodynamic system. `
