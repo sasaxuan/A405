@@ -19,6 +19,16 @@ ________
      *Notes*: `entropy and equivalent temperature notes`_ -- 
      *Text*: p. 85
 
+   internal energy
+     *symbol*: :math:`u` --
+     *units*: J/kg --
+     *Notes*: `internal energy notes`_ -- 
+     *Text*: p. 72
+     *Definition*: Kinetic and potential energy of a system's molecules and
+        atoms (doesn't count the kinetic energy of the system moving
+        as a unit, or the potential energy due to movement in an
+        external gravitational or electromagnetic field
+
    moist static energy
      *symbol*: :math:`h_m` or :math:`h_{mse}` --
      *units*: :math:`J kg^{-1}`  -- 
