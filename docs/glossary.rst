@@ -45,7 +45,7 @@ ________
      *Notes*: `moist static energy notes`_
      *Text*: p. 86
 	 
-	wsat
+   wsat
      *symbol*: :math:`w_s` --
      *units*: :math:`kg/kg`  -- 
      *Notes*: `vapor notes`_ --  
