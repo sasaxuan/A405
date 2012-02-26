@@ -7,11 +7,21 @@ ________
 
 .. glossary::
 
-   entropy
+   esat
+     *symbol*: :math:`e_s` --
+     *units*: :math:`Pa`  -- 
+     *Notes*: `vapor notes`_ --  
+     *Text*: p. 80-82
+	 *Definition*: `Otherwise know as the saturation vapor pressure. 
+		The pressure exerted by the water vapor at the point of saturation.
+		Saturation is defined when the rate of condensation is equal to the rate of evaporation.`
+
+    entropy
      *symbol*: :math:`s` --
      *units*: :math:`J kg^{-1} K^{-1}`  -- 
      *Notes*: `entropy and equivalent temperature notes`_ --  
      *Text*: p. 100-101
+
 
    equivalent potential temperature
      *symbol*: :math:`\theta_e` --
@@ -34,6 +44,14 @@ ________
      *units*: :math:`J kg^{-1}`  -- 
      *Notes*: `moist static energy notes`_
      *Text*: p. 86
+	 
+	wsat
+     *symbol*: :math:`w_s` --
+     *units*: :math:`kg/kg`  -- 
+     *Notes*: `vapor notes`_ --  
+     *Text*: p. 82
+	 *Definition*: `Otherwise know as the saturation mixing ratio. 
+		The ratio of the mass of saturated water vapor over mass of dry air.`
 
    virtual temperature 
      *symbol*: :math: `T_v' --
