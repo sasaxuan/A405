@@ -3,9 +3,6 @@ function pangs_littlerock
     fprintf('reading file: %s\n',filename);
     file_struct=nc_info(filename);
     c=constants;
-    %
-    % grab the March 2 12Z sounding
-    %
     sound_var = file_struct.Dataset(4).Name;
     fprintf('found sounding: %s\n',sound_var);
     press=nc_varget(filename,sound_var,[0,0],[Inf,1]);
@@ -35,14 +32,29 @@ function pangs_littlerock
     ylabel('height above surface');
     title('wvel vs. height')
     grid on;
-    
+      figure(2);
+    clf;
+     plot(t,y(:,1));
+    title('wvel vs. time, stop when 0');
+ %%%%%%%%%%%%%%%%%% stop when wvel=0  
     stopwvel=0;
   options=odeset('Events',@events);
-  [t,y]=ode45(derivs,tspan,yinit,options);
-  figure(2);
-  clf;
-  plot(t,y(:,1));
-  title('wvel vs. time, stop when 0');
+  [t2,y2]=ode45(derivs,tspan,yinit,options);
+    wvel2=y2(:,1);
+    height2=y2(:,2);  
+    updraft2=wvel2 > 0;
+    
+    figure(3);
+    clf;
+    plot(wvel2(updraft2),height2(updraft2))
+    xlabel('vertical velocity');
+    ylabel('height above surface');
+    title('wvel vs. height, stop when wvel=0')
+    grid on;
+    figure(4);
+    clf;
+     plot(t2,y2(:,1));
+    title('wvel vs. time, stop when wvel0');
   
   function [value,isterminal,direction] = events(t,y)
         % Locate the time when height passes through stopHeight in a decreasing direction
@@ -50,7 +62,7 @@ function pangs_littlerock
         % passing the additional parameter stopHeight as an input argument.
         value = y(1) - stopwvel;     % detect height = 0
         isterminal = 1;   % stop the integration
-        direction = 1;   % only when approaching stopHeight from above
+        direction = -1;   % only when approaching stopHeight from above
   end
 
 end
